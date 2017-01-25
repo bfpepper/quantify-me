@@ -9,17 +9,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
-<style>
-</style>
 
 <div class="container panel col-md-4 col-md-offset-4">
   <h3>Enter Your Exercise Below</h3>
   <form class="create-exercise-form form-inline">
     Name:<br>
-    <input class='create-exercise-name' type="text" name="name"><br>
+    <input class='create-exercise-name' type="text" name="name" required="required" oninvalid="this.setCustomValidity('Please enter an exercise name')" oninput="this.setCustomValidity('')"><br>
     Calories:<br>
-    <input class='create-exercise-calorie-count' type="text" name="calories"></br>
-    <button class="btn btn-primary create-exercise-button" type="button">Add Exercise</button>
+    <input class='create-exercise-calorie-count' type="text" name="calories" required="required" oninvalid="this.setCustomValidity('Please enter a calorie amount')" oninput="this.setCustomValidity('')"></br>
+    <button class="btn btn-primary create-exercise-button" type="submit">Add Exercise</button>
   </form>
 </div>
 
