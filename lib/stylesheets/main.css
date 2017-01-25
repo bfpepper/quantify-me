@@ -1,0 +1,8 @@
+tr:nth-child(even) {
+  background-color: lightgrey;
+}
+
+table {
+  border: 1px solid grey;
+  border-radius: 20px;
+}
