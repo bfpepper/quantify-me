@@ -23,6 +23,7 @@ test.describe("user creates an exercise entry from exercises.html", function(){
     driver.sleep(1000);
     var name = driver.findElement({id: 'create-exercise-name'});
     var calories = driver.findElement({id: 'create-exercise-calorie-count'});
+    var submitButton = driver.findElement({id: 'create-exercise-button'});
 
     name.sendKeys('hop');
     name.getAttribute('value').then(function(value){
@@ -32,6 +33,15 @@ test.describe("user creates an exercise entry from exercises.html", function(){
     calories.getAttribute('value').then(function(value){
       assert.equal(value, '20');
     });
+    submitButton.click();
+
+    driver.findElement({css: 'table td'}).getText().then(function(textValue) {
+      assert.include(textValue, 'hop');
+    });
+    driver.findElement({css: 'table td:nth-child(2)'}).getText().then(function(textValue) {
+      assert.include(textValue, '20');
+    });
 
   });
+
 });
