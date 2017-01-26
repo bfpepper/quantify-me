@@ -15,7 +15,7 @@ test.describe("user creates an exercise entry from exercises.html", function(){
   test.afterEach(function(){
     driver.get('http://localhost:8080/webpack-dev-server/exercises.html')
     driver.executeScript("window.localStorage.clear()");
-    driver.quit
+    driver.quit();
   })
 
   test.it("prints updated information to page", function(){
