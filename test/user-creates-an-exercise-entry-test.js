@@ -1,6 +1,6 @@
-var assert = require('chai').assert;
+var assert    = require('chai').assert;
 var webdriver = require('selenium-webdriver');
-var test = require('selenium-webdriver/testing');
+var test      = require('selenium-webdriver/testing');
 
 test.describe("user creates an exercise entry from exercises.html", function(){
   var driver;
@@ -20,9 +20,11 @@ test.describe("user creates an exercise entry from exercises.html", function(){
 
   test.it("prints updated information to page", function(){
     driver.get("http://localhost:8080/exercises.html");
-    driver.sleep(1000)
+    driver.sleep(10000)
+
     var name = driver.findElement({id: 'create-exercise-name'});
     var calories = driver.findElement({id: 'create-exercise-calorie-count'});
+    var submitButton = driver.findElement({id: 'create-exercise-button'});
 
     name.sendKeys('hop');
     name.getAttribute('value').then(function(value){
@@ -32,5 +34,15 @@ test.describe("user creates an exercise entry from exercises.html", function(){
     calories.getAttribute('value').then(function(value){
       assert.equal(value, '20');
     });
+    submitButton.click();
+
+    driver.findElement({css: 'table td'}).getText().then(function(textValue) {
+      assert.include(textValue, 'hop');
+    });
+    driver.findElement({css: 'table td:nth-child(2)'}).getText().then(function(textValue) {
+      assert.include(textValue, '20');
+    });
+
   });
+
 });
