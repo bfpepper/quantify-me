@@ -32,7 +32,7 @@ test.describe("user updates an exercise on exercise.html", function(){
     var updateName = driver.findElement({css: 'table td input'});
     updateName.sendKeys('s');
     elsewhere.click();
-    
+
     driver.findElement({css: 'table td'}).getText().then(function(textValue){
       assert.equal(textValue,'hops')
     });
