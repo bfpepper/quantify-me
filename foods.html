@@ -14,10 +14,10 @@
   <h3>Enter Your Food Below</h3>
   <form class="create-food-form form-inline">
     Name:<br>
-    <input class='create-food-name' type="text" name="name" required oninvalid="this.setCustomValidity('Please enter an food name')" oninput="this.setCustomValidity('')"><br>
+    <input id='create-food-name' type="text" name="name" required oninvalid="this.setCustomValidity('Please enter an food name')" oninput="this.setCustomValidity('')"><br>
     Calories:<br>
-    <input class='create-food-calorie-count' type="text" name="calories" required oninvalid="this.setCustomValidity('Please enter a calorie amount')" oninput="this.setCustomValidity('')"></br>
-    <button class="btn btn-primary create-food-button btn-xs" type="submit">Add Food</button>
+    <input id='create-food-calorie-count' type="text" name="calories" required oninvalid="this.setCustomValidity('Please enter a calorie amount')" oninput="this.setCustomValidity('')"></br>
+    <button id="create-food-button" class="btn btn-primary btn-xs" type="submit">Add Food</button>
   </form>
 </div>
 
