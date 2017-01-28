@@ -4,7 +4,7 @@ var test      = require('selenium-webdriver/testing');
 
 test.describe("user creates a food on foods.html", function(){
   var driver;
-  this.timeout(100000);
+  this.timeout(10000);
 
   test.beforeEach(function() {
     driver = new webdriver.Builder()
@@ -36,8 +36,6 @@ test.describe("user creates a food on foods.html", function(){
     });
 
     submitButton.click();
-
-    driver.sleep(10000)
 
     driver.findElement({css: 'table td'}).getText().then(function(textValue) {
       assert.include(textValue, 'Apple');

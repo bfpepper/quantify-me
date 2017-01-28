@@ -13,7 +13,7 @@ test.describe("user sees their exercises on exercises.html", function(){
   });
   test.afterEach(function(){
     driver.get('http://localhost:8080/exercises.html');
-    driver.executeScript('window.localStorage.clear');
+    driver.executeScript('window.localStorage.clear()');
     driver.quit();
   });
 
