@@ -4,7 +4,7 @@ var test      = require('selenium-webdriver/testing');
 
 test.describe("user sees their exercises on exercises.html", function(){
   var driver;
-  this.timeout(1000);
+  this.timeout(10000);
 
   test.beforeEach(function(){
     driver = new webdriver.Builder()
@@ -13,7 +13,7 @@ test.describe("user sees their exercises on exercises.html", function(){
   });
   test.afterEach(function(){
     driver.get('http://localhost:8080/exercises.html');
-    driver.executeScript('window.localStorage.clear');
+    driver.executeScript('window.localStorage.clear()');
     driver.quit();
   });
 
