@@ -2,7 +2,7 @@ var assert    = require('chai').assert;
 var webdriver = require('selenium-webdriver');
 var test      = require('selenium-webdriver/testing');
 
-test.describe("USer can update a food on foods.html", function() {
+test.describe("User can update a food on foods.html", function() {
   var driver;
   this.timeout(10000);
 
@@ -26,14 +26,14 @@ test.describe("USer can update a food on foods.html", function() {
     driver.get('http://localhost:8080/foods.html');
     var foodName = driver.findElement({css: 'table td'});
     var foodCalories = driver.findElement({css: 'table td:nth-child(2)'});
-    var elseWhere = driver.findElement({css: 'create-food-name'})
+    var elseWhere = driver.findElement({id: 'create-food-name'})
 
     foodName.click();
     var updateName = driver.findElement({css: 'table td input'});
     updateName.sendKeys('s');
-    elsewhere.click();
+    elseWhere.click();
 
-    driver.findElement({css: 'table td'})getText().then(function(textValue) {
+    driver.findElement({css: 'table td'}).getText().then(function(textValue) {
       assert.equal(textValue, "Apples")
     });
   });
