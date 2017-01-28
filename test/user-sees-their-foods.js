@@ -1,6 +1,6 @@
-var assert = require('chai').assert;
+var assert    = require('chai').assert;
 var webdriver = require('selenium-webdriver');
-var test = require('selenium-webdriver/testing');
+var test      = require('selenium-webdriver/testing');
 
 test.describe("User can see their foods on foods.html", function() {
   var driver;
@@ -9,7 +9,7 @@ test.describe("User can see their foods on foods.html", function() {
   test.beforeEach(function() {
     driver = new webdriver.Builder()
     .forBrowser('chrome')
-    .build()
+    .build();
   });
 
   test.afterEach(function() {
@@ -20,7 +20,7 @@ test.describe("User can see their foods on foods.html", function() {
 
   test.it("User sees existing foods when on foods.html", function() {
     driver.get('http://localhost:8080/foods.html');
-    var foodsJSON = JSON.stringify([{name:'Apple', calories:'134'}])
+    var foodsJSON = JSON.stringify([{name:'Apple', calories:'134'}]);
     driver.executeScript("window.localStorage.setItem('foods', '" + foodsJSON + "')");
 
     driver.get('http://localhost:8080/foods.html');
@@ -31,10 +31,10 @@ test.describe("User can see their foods on foods.html", function() {
 
     driver.get('http://localhost:8080/foods.html');
     driver.findElement({css: 'table td'}).getText().then(function(textValue) {
-      assert.include(textValue, 'Apple')
+      assert.include(textValue, 'Apple');
     });
     driver.findElement({css: 'table td:nth-child(2)'}).getText().then(function(textValue) {
-      assert.include(textValue, '134')
+      assert.include(textValue, '134');
     });
   });
 });

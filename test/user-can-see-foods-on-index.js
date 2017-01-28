@@ -20,17 +20,17 @@ test.describe("User sees all foods on index.html", function(){
 
   test.it('User sees all foods on index.html', function() {
     driver.get('http://localhost:8080/index.html');
-    var foodsJSON = JSON.stringify([{name:'Apple', calories:'134'}])
+    var foodsJSON = JSON.stringify([{name:'Apple', calories:'134'}]);
     driver.executeScript("window.localStorage.setItem('foods', '" + foodsJSON + "')");
 
     driver.get('http://localhost:8080/index.html');
 
     driver.findElement({id: 'food-diary-name'}).getText().then(function(textValue) {
-      assert.equal(textValue, 'Apple')
+      assert.equal(textValue, 'Apple');
     });
 
     driver.findElement({id: 'food-diary-calories'}).getText().then(function(textValue) {
-      assert.equal(textValue, '134')
+      assert.equal(textValue, '134');
     });
   });
 });

@@ -1,6 +1,6 @@
-var assert = require('chai').assert;
+var assert    = require('chai').assert;
 var webdriver = require('selenium-webdriver');
-var test = require('selenium-webdriver/testing');
+var test      = require('selenium-webdriver/testing');
 
 test.describe("user deletes an exercise test", function(){
   var driver;
@@ -20,17 +20,16 @@ test.describe("user deletes an exercise test", function(){
 
   test.it("user deletes an exercise from exercise.html", function(){
     driver.get('http://localhost:8080/exercises.html');
-    var exercisesJSON = JSON.stringify([{name:'hop', calories:'20'}, {name:'skip', calories:'30'}])
+    var exercisesJSON = JSON.stringify([{name:'hop', calories:'20'}, {name:'skip', calories:'30'}]);
     driver.executeScript("window.localStorage.setItem('exercises', '" + exercisesJSON + "')");
 
     driver.get('http://localhost:8080/exercises.html');
-    driver.sleep(10000);
-    var firstExerciseDelete = driver.findElement({id: 'delete-exercise-button'})
+    var firstExerciseDelete = driver.findElement({id: 'delete-exercise-button'});
 
     firstExerciseDelete.click();
 
     driver.findElement({css: 'table td'}).getText().then(function(textValue){
-      assert.equal(textValue, 'skip')
+      assert.equal(textValue, 'skip');
     });
   });
 });
