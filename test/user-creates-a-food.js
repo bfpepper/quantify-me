@@ -27,12 +27,12 @@ test.describe("user creates a food on foods.html", function(){
 
     name.sendKeys('Apple');
     name.getAttribute('value').then(function(value) {
-      assert.equal(value, "Apple")
+      assert.equal(value, "Apple");
     });
 
     calories.sendKeys('134');
     calories.getAttribute('value').then(function(value) {
-      assert.equal(value, '134')
+      assert.equal(value, '134');
     });
 
     submitButton.click();

@@ -13,7 +13,7 @@ test.describe("user creates an exercise entry from exercises.html", function(){
   })
 
   test.afterEach(function(){
-    driver.get('http://localhost:8080/exercises.html')
+    driver.get('http://localhost:8080/exercises.html');
     driver.executeScript("window.localStorage.clear()");
     driver.quit();
   })
@@ -41,7 +41,5 @@ test.describe("user creates an exercise entry from exercises.html", function(){
     driver.findElement({css: 'table td:nth-child(2)'}).getText().then(function(textValue) {
       assert.include(textValue, '20');
     });
-
   });
-
 });

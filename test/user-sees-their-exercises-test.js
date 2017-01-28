@@ -19,7 +19,7 @@ test.describe("user sees their exercises on exercises.html", function(){
 
   test.it('add exercise into localStorage', function(){
     driver.get('http://localhost:8080/exercises.html');
-    var exercisesJSON = JSON.stringify([{name:'hop', calories:'20'}])
+    var exercisesJSON = JSON.stringify([{name:'hop', calories:'20'}]);
     driver.executeScript("window.localStorage.setItem('exercises', '" + exercisesJSON + "')");
 
     driver.get("http://localhost:8080/exercises.html");
@@ -30,11 +30,10 @@ test.describe("user sees their exercises on exercises.html", function(){
 
     driver.get("http://localhost:8080/exercises.html");
     driver.findElement({css: 'table td'}).getText().then(function(textValue){
-      assert.include(textValue, 'hop')
+      assert.include(textValue, 'hop');
     });
     driver.findElement({css: 'table td:nth-child(2)'}).getText().then(function(textValue){
-      assert.include(textValue, '20')
+      assert.include(textValue, '20');
     });
-
   });
 });

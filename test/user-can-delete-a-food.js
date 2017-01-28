@@ -20,16 +20,16 @@ test.describe("user deletes a food on foods.html", function(){
 
   test.it("User can delete a given food from foods.html", function() {
     driver.get('http://localhost:8080/foods.html');
-    var foodsJSON = JSON.stringify([{name:'Apple', calories:'134'}, {name:'Bananna', calories:'75'}])
+    var foodsJSON = JSON.stringify([{name:'Apple', calories:'134'}, {name:'Bananna', calories:'75'}]);
     driver.executeScript("window.localStorage.setItem('foods', '" + foodsJSON + "')");
 
     driver.get('http://localhost:8080/foods.html');
-    var firstFoodDelete = driver.findElement({id: 'delete-food-button'})
+    var firstFoodDelete = driver.findElement({id: 'delete-food-button'});
 
     firstFoodDelete.click();
 
     driver.findElement({css: 'table td'}).getText().then(function(textValue) {
-      assert.equal(textValue, "Bananna")
+      assert.equal(textValue, "Bananna");
     });
   });
 });

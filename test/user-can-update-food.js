@@ -20,7 +20,7 @@ test.describe("User can update a food on foods.html", function() {
 
   test.it('user updates a given food', function() {
     driver.get('http://localhost:8080/foods.html');
-    var foodsJSON = JSON.stringify([{name:'Apple', calories:'134'}])
+    var foodsJSON = JSON.stringify([{name:'Apple', calories:'134'}]);
     driver.executeScript("window.localStorage.setItem('foods', '" + foodsJSON + "')");
 
     driver.get('http://localhost:8080/foods.html');
@@ -29,12 +29,13 @@ test.describe("User can update a food on foods.html", function() {
     var elseWhere = driver.findElement({id: 'create-food-name'})
 
     foodName.click();
+
     var updateName = driver.findElement({css: 'table td input'});
     updateName.sendKeys('s');
     elseWhere.click();
 
     driver.findElement({css: 'table td'}).getText().then(function(textValue) {
-      assert.equal(textValue, "Apples")
+      assert.equal(textValue, "Apples");
     });
   });
 });

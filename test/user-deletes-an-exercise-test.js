@@ -2,9 +2,9 @@ var assert    = require('chai').assert;
 var webdriver = require('selenium-webdriver');
 var test      = require('selenium-webdriver/testing');
 
-test.describe("user updates an exercise on exercise.html", function(){
+test.describe("user deletes an exercise test", function(){
   var driver;
-  this.timeout(10000);
+  this.timeout(1000000);
 
   test.beforeEach(function(){
     driver = new webdriver.Builder()
@@ -18,24 +18,18 @@ test.describe("user updates an exercise on exercise.html", function(){
     driver.quit();
   });
 
-  test.it('updates an exercise inline', function(){
+  test.it("user deletes an exercise from exercise.html", function(){
     driver.get('http://localhost:8080/exercises.html');
-    var exercisesJSON = JSON.stringify([{name:'hop', calories:'20'}]);
+    var exercisesJSON = JSON.stringify([{name:'hop', calories:'20'}, {name:'skip', calories:'30'}]);
     driver.executeScript("window.localStorage.setItem('exercises', '" + exercisesJSON + "')");
 
     driver.get('http://localhost:8080/exercises.html');
-    var exerciseName = driver.findElement({css: 'table td'});
-    var exerciseCal = driver.findElement({css: 'table td:nth-child(2)'});
-    var elsewhere = driver.findElement({id: 'create-exercise-name'});
+    var firstExerciseDelete = driver.findElement({id: 'delete-exercise-button'});
 
-    exerciseName.click();
-
-    var updateName = driver.findElement({css: 'table td input'});
-    updateName.sendKeys('s');
-    elsewhere.click();
+    firstExerciseDelete.click();
 
     driver.findElement({css: 'table td'}).getText().then(function(textValue){
-      assert.equal(textValue,'hops');
+      assert.equal(textValue, 'skip');
     });
   });
 });
