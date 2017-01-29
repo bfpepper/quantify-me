@@ -24,7 +24,7 @@ test.describe("user deletes an exercise test", function(){
     driver.executeScript("window.localStorage.setItem('exercises', '" + exercisesJSON + "')");
 
     driver.get('http://localhost:8080/exercises.html');
-    var firstExerciseDelete = driver.findElement({id: 'delete-exercise-button'});
+    var firstExerciseDelete = driver.findElement({className: 'delete-exercise-button'});
 
     firstExerciseDelete.click();
 

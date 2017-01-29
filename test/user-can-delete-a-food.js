@@ -24,7 +24,7 @@ test.describe("user deletes a food on foods.html", function(){
     driver.executeScript("window.localStorage.setItem('foods', '" + foodsJSON + "')");
 
     driver.get('http://localhost:8080/foods.html');
-    var firstFoodDelete = driver.findElement({id: 'delete-food-button'});
+    var firstFoodDelete = driver.findElement({className: 'delete-food-button'});
 
     firstFoodDelete.click();
 
