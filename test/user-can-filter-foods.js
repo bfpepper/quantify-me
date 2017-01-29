@@ -2,7 +2,7 @@ var assert    = require('chai').assert;
 var webdriver = require('selenium-webdriver');
 var test      = require('selenium-webdriver/testing');
 
-test.describe("User sees all foods on index.html", function(){
+test.describe("User filters all foods on index.html", function(){
   var driver;
   this.timeout(10000);
 
