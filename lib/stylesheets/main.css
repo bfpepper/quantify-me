@@ -7,6 +7,18 @@ table {
   border-radius: 20px;
 }
 
+tr {
+    border: 1px solid darkgrey;
+}
+
 .cal-totals-row {
   background-color: lightgrey;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
 }
