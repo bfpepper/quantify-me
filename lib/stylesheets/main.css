@@ -6,3 +6,7 @@ table {
   border: 1px solid grey;
   border-radius: 20px;
 }
+
+.cal-totals-row {
+  background-color: lightgrey;
+}
