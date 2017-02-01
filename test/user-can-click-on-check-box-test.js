@@ -2,7 +2,7 @@ var assert    = require('chai').assert;
 var webdriver = require('selenium-webdriver');
 var test      = require('selenium-webdriver/testing');
 
-test.describe("user deletes a food on foods.html", function(){
+test.describe("user can click on checkbox next to item", function(){
   var driver;
   this.timeout(10000);
 
@@ -18,18 +18,23 @@ test.describe("user deletes a food on foods.html", function(){
     driver.quit();
   });
 
-  test.it("User can delete a given food from foods.html", function() {
-    driver.get('http://localhost:8080/foods.html');
+  test.it("user can click on a check box next to a food in index.html", function() {
+    driver.get('http://localhost:8080/index.html');
     var foodsJSON = JSON.stringify([{name:'Apple', calories:'134'}, {name:'Bananna', calories:'75'}]);
     driver.executeScript("window.localStorage.setItem('foods', '" + foodsJSON + "')");
 
-    driver.get('http://localhost:8080/foods.html');
-    var firstFoodDelete = driver.findElement({className: 'delete-food-button'});
+    driver.get('http://localhost:8080/index.html');
+    var firstFood = driver.findElement({className: 'selected-foods'});
+    var breakfastButton = driver.findElement({id: "breakfast-button"});
 
-    firstFoodDelete.click();
+    firstFood.click();
+    breakfastButton.click();
 
-    driver.findElement({css: 'table td'}).getText().then(function(textValue) {
-      assert.equal(textValue, "Bananna");
+    driver.findElement({className: 'breakfast-food-name'}).getText().then(function(textValue) {
+      assert.equal(textValue, 'Apple')
     });
+
+
   });
+
 });

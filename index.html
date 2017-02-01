@@ -9,81 +9,100 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="container panel col-md-4 col-md-offset-1">
-    <row class="table-header"><h4>Breakfast</h4></row>
-    <table class="breakfast-table table-hover table col-md-4">
-      <tr>
-        <th>Name</th>
-        <th>Calories</th>
-      </tr>
-    </table>
+  <div class="row">
+    <div class="panel col-md-4 col-md-offset-4">
+      <div id="decrease-date" class="btn btn-primary btn-xs"> - </div>
+      <div id="date"> </div>
+      <div id="increase-date" class="btn btn-primary btn-xs"> + </div>
+    </div>
   </div>
-  <div class="container panel col-md-4 col-md-offset-1">
-    <row class="table-header"><h4>Lunch</h4></row>
-    <table class="lunch-table table-hover table col-md-4">
-      <tr>
-        <th>Name</th>
-        <th>Calories</th>
-      </tr>
-    </table>
+  <div class="row">
+    <div class="container panel col-md-4 col-md-offset-1">
+      <row class="table-header"><h4>Breakfast</h4></row>
+      <table id="diary-breakfast-table" class="breakfast-table table-hover table col-md-4">
+        <tr>
+          <th>Name</th>
+          <th>Calories</th>
+        </tr>
+      </table>
+    </div>
+    <div class="container panel col-md-4 col-md-offset-1">
+      <row class="table-header"><h4>Lunch</h4></row>
+      <table id="diary-lunch-table" class="lunch-table table-hover table col-md-4">
+        <tr>
+          <th>Name</th>
+          <th>Calories</th>
+        </tr>
+      </table>
+    </div>
   </div>
-  <div class="container panel col-md-4 col-md-offset-1">
-    <row class="table-header"><h4>Dinner</h4></row>
-    <table class="dinner-table table-hover table col-md-4">
-      <tr>
-        <th>Name</th>
-        <th>Calories</th>
-      </tr>
-    </table>
+  <div class="row">
+    <div class="container panel col-md-4 col-md-offset-1">
+      <row class="table-header"><h4>Dinner</h4></row>
+      <table id="diary-dinner-table" class="dinner-table table-hover table col-md-4">
+        <tr>
+          <th>Name</th>
+          <th>Calories</th>
+        </tr>
+      </table>
+    </div>
+    <div class="container panel col-md-4 col-md-offset-1">
+      <row class="table-header"><h4>Snacks</h4></h4></row>
+      <table id="diary-snacks-table" class="snacks-table table-hover table col-md-4">
+        <tr>
+          <th>Name</th>
+          <th>Calories</th>
+        </tr>
+      </table>
+    </div>
   </div>
-  <div class="container panel col-md-4 col-md-offset-1">
-    <row class="table-header"><h4>Snacks</h4></h4></row>
-    <table class="snacks-table table-hover table col-md-4">
-      <tr>
-        <th>Name</th>
-        <th>Calories</th>
-      </tr>
-    </table>
-  </div>
-  <div class="container panel col-md-4 col-md-offset-1">
-    <row class="table-header"><h4>Exercise</h4></row>
-    <table class="exercise-diary-table table-hover table col-md-4">
-      <tr>
-        <th>Name</th>
-        <th>Calories</th>
-      </tr>
-    </table>
-  </div>
-  <div class="container panel col-md-4 col-md-offset-1">
-    <row class="table-header"><h4>Totals</h4></row>
-    <table class="total-table table-hover table col-md-4">
-      <tr>
-        <td>Goal Calories</td>
-        <td class="goal-calories"></td>
-      </tr>
-      <tr>
-        <td>Calories Consumed</td>
-        <td class="calories-consumed"></td>
-      </tr>
-      <tr>
-        <td>Calories Burned</td>
-        <td class="calories-burned"></td>
-      </tr>
-      <tr>
-        <td>Remaining Calories</td>
-        <td class="remaining-calories"></td>
-      </tr>
-    </table>
+  <div class="row">
+    <div class="container panel col-md-4 col-md-offset-1">
+      <row class="table-header"><h4>Exercise</h4></row>
+      <table id='diary-exercise-table' class="exercise-diary-table table-hover table col-md-4">
+        <tr>
+          <th>Name</th>
+          <th>Calories</th>
+        </tr>
+      </table>
+    </div>
+    <div class="container panel col-md-4 col-md-offset-1">
+      <row class="table-header"><h4>Totals</h4></row>
+      <table class="total-table table-hover table col-md-4">
+        <tr class="cal-totals-row">
+          <td>Goal Calories</td>
+          <td class="goal-calories">2000</td>
+        </tr>
+        <tr class="cal-totals-row">
+          <td>Calories Consumed</td>
+          <td id="calories-consumed"></td>
+        </tr>
+        <tr class="cal-totals-row">
+          <td>Calories Burned</td>
+          <td id="calories-burned"></td>
+        </tr>
+        <tr class="cal-totals-row">
+          <td>Remaining Calories</td>
+          <td id="remaining-calories"></td>
+        </tr>
+      </table>
+    </div>
   </div>
   <div class="container panel col-md-4 col-md-offset-1">
     <row class="table-header"><h4>Foods</h4></row>
     <div class="container-fluid">
-      <ul class='go-to-foods'><a href="foods.html" class="btn btn-default btn-xs">Create New</a></ul>
+      <ul class='go-to-foods'><a href="/foods.html" class="btn btn-primary btn-xs">Create New</a></ul>
+      <p>Add Selected To:</p>
+      <ul id='breakfast-button' class="btn btn-primary btn-xs">Breakfast</ul>
+      <ul id='lunch-button' class="btn btn-primary btn-xs">Lunch</ul>
+      <ul id='dinner-button' class="btn btn-primary btn-xs">Dinner</ul>
+      <ul id='snacks-button' class="btn btn-primary btn-xs">Snacks</ul></br>
       Filter by Name</br>
       <input id='filter-foods-table' type='text'>
     </div>
       <table id="foods-diary-table" class="table-hover table col-md-4">
         <tr>
+          <th></th>
           <th>Name</th>
           <th>Calories</th>
         </tr>
@@ -92,12 +111,15 @@
   <div class="container panel col-md-4 col-md-offset-1">
     <row class="table-header"><h4>Exercises</h4></row>
     <div class="container-fluid">
-      <ul class='go-to-exercises'><a href="/exercises.html" class="btn btn-default btn-xs">Create New</a></ul>
+      <ul class='go-to-exercises'><a href="/exercises.html" class="btn btn-primary btn-xs">Create New</a></ul>
+      <p>Add Selected To:</p>
+      <ul id='exercises-button' class="btn btn-primary btn-xs">Exercises</ul></br>
       Filter by Name</br>
-      <input id='filter-exercises-table' type='text'>      
+      <input id='filter-exercises-table' type='text'>
     </div>
-      <table id="exercises-diary-table" class="table-hover table col-md-4">
+      <table id='exercises-diary-table' class="table-hover table col-md-4">
         <tr>
+          <th></th>
           <th>Name</th>
           <th>Calories</th>
         </tr>
