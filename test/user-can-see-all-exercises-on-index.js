@@ -18,7 +18,7 @@ test.describe("User sees all exercises on index.html", function(){
     driver.quit();
   });
 
-  test.it('User sees all foods on index.html', function() {
+  test.it('User sees all exercises on index.html', function() {
     driver.get('http://localhost:8080/index.html');
     var exercisesJSON = JSON.stringify([{name:'Ski', calories:'500'}]);
     driver.executeScript("window.localStorage.setItem('exercises', '" + exercisesJSON + "')");
