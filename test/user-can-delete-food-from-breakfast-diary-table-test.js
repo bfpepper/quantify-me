@@ -21,7 +21,7 @@ test.describe("user can delete a food off a diary meal table.", function(){
   test.it("user can delete a food off the breakfast diary table.", function() {
 
     driver.get('http://localhost:8080/index.html');
-    var foodsJSON = JSON.stringify([{name:'Apple', calories:'134'}, {name: "Bananna", calories: "52"}]);
+    var foodsJSON = JSON.stringify([{name:'Apple', calories:'134'}]);
     driver.executeScript("window.localStorage.setItem('foods', '" + foodsJSON + "')");
 
     driver.get('http://localhost:8080/index.html');
@@ -31,11 +31,19 @@ test.describe("user can delete a food off a diary meal table.", function(){
     var button = driver.findElement({id: "breakfast-button"})
     button.click()
 
-    var appleRow = driver.findElement({className: 'delete-food-meal-button'})
+    driver.findElement({id: 'calories-consumed'}).getText().then(function(textValue) {
+      assert.equal(textValue, '134');
+    });
+
+    var appleRow = driver.findElement({id: 'index-0'})
     appleRow.click()
 
     driver.findElement({id: 'diary-breakfast-table'}).getText().then(function(textValue) {
-      assert.notEqual(textValue, 'Apple')
+      assert.notInclude(textValue, 'Apple')
+    });
+
+    driver.findElement({id: 'calories-consumed'}).getText().then(function(textValue) {
+      assert.equal(textValue, '0')
     });
 
   });

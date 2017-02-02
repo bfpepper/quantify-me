@@ -39,7 +39,7 @@ test.describe("user can delete an exercise off the exercise diary table.", funct
     skiRow.click()
 
     driver.findElement({id: 'diary-exercise-table'}).getText().then(function(textValue) {
-      assert.notEqual(textValue, 'Ski')
+      assert.notInclude(textValue, 'Ski')
     });
 
     driver.findElement({id: 'calories-burned'}).getText().then(function(textValue) {
