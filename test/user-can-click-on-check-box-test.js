@@ -24,7 +24,7 @@ test.describe("user can click on checkbox next to item", function(){
     driver.executeScript("window.localStorage.setItem('foods', '" + foodsJSON + "')");
 
     driver.get('http://localhost:8080/index.html');
-    var firstFood = driver.findElement({className: 'selected-foods'});
+    var firstFood = driver.findElement({id: "Apple"});
     var breakfastButton = driver.findElement({id: "breakfast-button"});
 
     firstFood.click();
