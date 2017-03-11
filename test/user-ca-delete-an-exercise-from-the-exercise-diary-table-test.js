@@ -4,7 +4,7 @@ var test      = require('selenium-webdriver/testing');
 
 test.describe("user can delete an exercise off the exercise diary table.", function(){
   var driver;
-  this.timeout(10000);
+  this.timeout(10000000);
 
   test.beforeEach(function(){
     driver = new webdriver.Builder()
@@ -28,6 +28,7 @@ test.describe("user can delete an exercise off the exercise diary table.", funct
 
     var checkBox = driver.findElement({id: "Ski"})
     checkBox.click()
+    driver.sleep(1000000)
     var button = driver.findElement({id: "exercises-button"})
     button.click()
 
