@@ -4,7 +4,7 @@ var test      = require('selenium-webdriver/testing');
 
 test.describe("User sees all foods on index.html", function(){
   var driver;
-  this.timeout(10000);
+  this.timeout(100000);
 
   test.beforeEach(function(){
     driver = new webdriver.Builder()
@@ -26,8 +26,11 @@ test.describe("User sees all foods on index.html", function(){
     driver.get('http://localhost:8080/index.html');
 
     var checkBox = driver.findElement({id: "Apple"})
-    checkBox.click()
+    // driver.findElement({css: 'input[id=Apple]'}).click()
     var button = driver.findElement({id: "breakfast-button"})
+
+    checkBox.click()
+    // driver.sleep(100000)
     button.click()
 
     driver.findElement({className: "breakfast-food-name"}).getText().then(function(textValue) {

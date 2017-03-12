@@ -4,7 +4,7 @@ var test      = require('selenium-webdriver/testing');
 
 test.describe("user can click on checkbox next to item", function(){
   var driver;
-  this.timeout(10000);
+  this.timeout(100005);
 
   test.beforeEach(function(){
     driver = new webdriver.Builder()
@@ -26,6 +26,7 @@ test.describe("user can click on checkbox next to item", function(){
     driver.get('http://localhost:8080/index.html');
     var firstFood = driver.findElement({id: "Apple"});
     var breakfastButton = driver.findElement({id: "breakfast-button"});
+    driver.sleep(10000)
 
     firstFood.click();
     breakfastButton.click();
